@@ -1,0 +1,7 @@
+/*list on employee page*/
+
+.empresources {
+    list-style-type:none; 
+    margin-left:0px; 
+    line-height:150%
+}

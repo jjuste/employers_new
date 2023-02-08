@@ -1,0 +1,11 @@
+{
+  "minify": true,
+  "options": [
+    "html5printshiv",
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/input",
+    "test/inputtypes"
+  ]
+}

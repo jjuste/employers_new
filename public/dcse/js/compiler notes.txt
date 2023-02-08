@@ -1,0 +1,1 @@
+java -jar compiler.jar --js input.js --js_output_file input.min.js --create_source_map input.min.js.map
