@@ -25,13 +25,14 @@ export default function Home({ users }: {users: any})  {
 
      {/* <!-- Begin content div --> */}
        <div>
-        <h1>Testing JSON API</h1>
+        <h2>Testing API Endpoint</h2>
+        <p>JSON Placeholder URL - https://jsonplaceholder.typicode.com/users</p>
   
-       {users.map((user: { id: Key | null | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined })=>(
+       {users.map((user: { id: Key | null | undefined; name: string | undefined; email: string })=>(
         <div key={user.id}>
-          <a>
-            <h3>{user.name}</h3>
-          </a>
+          <h3>User Information</h3>
+          <p>Name: {user.name}</p>
+          <p>Email: {user.email}</p>
         </div>
        ))}
           </div>
