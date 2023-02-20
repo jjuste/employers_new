@@ -1,38 +1,37 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import {useState, useEffect} from 'react';
-
+import {useState, useEffect} from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export const getStaticProps = async () =>{
 
+  //my response and wait for the data to return
+  const res = await fetch('https://jsonplaceholder.typicode.com/users');
 
+  //on fetch, add to json
+  const data = await res.json();
 
-  //url for json
-  const apiURL = 'https://jsonplaceholder.typicode.com/users'
+  return {
+    props: { users: data }
+  }
+
+}
+
+const Home = ({ users }) => {
+
  
-
   return (
     <>
-      
 
-   
-     
+     {/* <!-- Begin content div --> */}
+       <div>
+        <h1>Testing JSON API</h1>
+       </div>
 
-        {/* <!-- InstanceBeginEditable name="pageHead" --> */}
-        <h1>JSON Testing</h1>
-        {/* <!-- InstanceEndEditable --> */}
-       
-
-        {/* <!-- InstanceBeginEditable name="content" --> */}
 
        
-   
-    
-      
-      {/* <!-- End content div --> */}
 
       {/* <!-- End content div --> */}
       <div className="nys-global-footer">
@@ -115,3 +114,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home;
