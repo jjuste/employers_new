@@ -9,7 +9,7 @@ interface Home {
   data: string;
 }
 
-export default function Home({ data }) {
+export default function Home({  }) {
   //to display on page
   const [showPosts, setshowPosts] = useState();
   //url for json
@@ -29,11 +29,6 @@ export default function Home({ data }) {
     setshowPosts(displayEmail);
   }
 
-  //using static server props
-  displayEmail = data.map(function (user) {
-    return <p key={user.id}>{user.email}</p>;
-  });
-
   useEffect(() => {
     //function to display apiurl
     getJSON();
@@ -45,16 +40,9 @@ export default function Home({ data }) {
       <h1>https://jsonplaceholder.typicode.com/users</h1>
       {/* <!-- InstanceEndEditable --> */}
 
-      <div className="container">
-        <div className="async">
-          <h2>I am coming from an async function</h2>
-          {showPosts}
-        </div>
-        <div className="staticprops">
-          <h2>I am coming from Static Server Props</h2>
-          {displayEmail}
-        </div>
-      </div>
+      {showPosts}
+
+     
 
       {/* <!-- InstanceBeginEditable name="content" --> */}
 
@@ -206,8 +194,3 @@ export default function Home({ data }) {
   );
 }
 
-export async function getServerSideProps() {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
-  const data = await res.json();
-  return { props: { data } };
-}
