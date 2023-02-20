@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, JSXElementConstructor, Key, ReactElement, ReactFragment, ReactPortal} from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,21 +14,27 @@ export const getStaticProps = async () =>{
   const data = await res.json();
 
   return {
-    props: { users: data }
+    props: { ninjas: data }
   }
-
 }
 
-const Home = ({ users }) => {
-
- 
+export default function Home({ ninjas }: {ninjas: any})  {
   return (
     <>
 
      {/* <!-- Begin content div --> */}
        <div>
         <h1>Testing JSON API</h1>
-       </div>
+  
+       {ninjas.map((ninja: { id: Key | null | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined })=>(
+        <div key={ninja.id}>
+          <a>
+            <h3>{ninja.name}</h3>
+          </a>
+        </div>
+       ))}
+          </div>
+
 
 
        
@@ -114,5 +120,3 @@ const Home = ({ users }) => {
     </>
   )
 }
-
-export default Home;
