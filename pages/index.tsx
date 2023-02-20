@@ -1,51 +1,37 @@
-import Head from "next/head";
-import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
-import { useState, useEffect } from "react";
+import Head from 'next/head'
+import { Inter } from '@next/font/google'
+import styles from '@/styles/Home.module.css'
+import {useState, useEffect} from 'react';
 
-const inter = Inter({ subsets: ["latin"] });
 
-interface Home {
-  data: string;
-}
+const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({  }) {
-  //to display on page
-  const [showPosts, setshowPosts] = useState();
+export default function Home() {
+
+
+
   //url for json
-  const apiURL = "https://jsonplaceholder.typicode.com/users";
-  //variable for email
-  let displayEmail;
-  //using async
-  async function getJSON() {
-    //fetch apiurl
-    const response = await fetch(apiURL);
-    //convert to json object
-    const responseData = await response.json();
-    //map over json object
-    displayEmail = responseData.map(function (user) {
-      return <p key={user.id}>{user.email}</p>;
-    });
-    setshowPosts(displayEmail);
-  }
+  const apiURL = 'https://jsonplaceholder.typicode.com/users'
+ 
 
-  useEffect(() => {
-    //function to display apiurl
-    getJSON();
-  }, []);
   return (
     <>
-      {/* <!-- InstanceBeginEditable name="pageHead" --> */}
-      <h1>JSON Testing</h1>
-      <h1>https://jsonplaceholder.typicode.com/users</h1>
-      {/* <!-- InstanceEndEditable --> */}
+      
 
-      {showPosts}
-
+   
      
 
-      {/* <!-- InstanceBeginEditable name="content" --> */}
+        {/* <!-- InstanceBeginEditable name="pageHead" --> */}
+        <h1>JSON Testing</h1>
+        {/* <!-- InstanceEndEditable --> */}
+       
 
+        {/* <!-- InstanceBeginEditable name="content" --> */}
+
+       
+   
+    
+      
       {/* <!-- End content div --> */}
 
       {/* <!-- End content div --> */}
@@ -55,87 +41,26 @@ export default function Home({  }) {
           <div className="footer-col">
             <h4>Child Support</h4>
             <ul>
-              <li>
-                <a href="/DCSE/HomePage">
-                  <span>Child Support Home</span>
-                </a>
-              </li>
-              <li>
-                <a href="/dcse/custodial_parent_services.html">
-                  <span>Custodial Parents</span>
-                </a>
-              </li>
-              <li>
-                <a href="/dcse/non_custodial_parent_services.html">
-                  <span>Noncustodial Parents</span>
-                </a>
-              </li>
-              <li>
-                <a href="/dcse/employers_new.html">
-                  <span className="capitalize">Employers</span>
-                </a>
-              </li>
-              <li>
-                <a href="/dcse/providers.html">
-                  <span>Providers</span>
-                </a>
-              </li>
-              <li>
-                <a href="/DCSE/LocalOffices_input">
-                  <span>Local Offices</span>
-                </a>
-              </li>
-              <li>
-                <a href="/dcse/resources.html">
-                  <span>Resources</span>
-                </a>
-              </li>
+              <li><a href="/DCSE/HomePage"><span>Child Support Home</span></a></li>
+              <li><a href="/dcse/custodial_parent_services.html"><span>Custodial Parents</span></a></li>
+              <li><a href="/dcse/non_custodial_parent_services.html"><span>Noncustodial Parents</span></a></li>
+              <li><a href="/dcse/employers_new.html"><span className="capitalize">Employers</span></a></li>
+              <li><a href="/dcse/providers.html"><span>Providers</span></a></li>
+              <li><a href="/DCSE/LocalOffices_input"><span>Local Offices</span></a></li>
+              <li><a href="/dcse/resources.html"><span>Resources</span></a></li>
             </ul>
           </div>
           <div className="footer-col">
             <h4>Office of Temporary and Disability Assistance</h4>
             <ul>
-              <li>
-                <a href="https://otda.ny.gov/">
-                  <span className="notranslate" translate="no">
-                    OTDA
-                  </span>{" "}
-                  <span>Home</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://otda.ny.gov/contact.asp">
-                  <span>Contact</span>{" "}
-                  <span className="notranslate" translate="no">
-                    OTDA
-                  </span>
-                </a>
-              </li>
+              <li><a href="https://otda.ny.gov/"><span className="notranslate" translate="no">OTDA</span> <span>Home</span></a></li>
+              <li><a href="https://otda.ny.gov/contact.asp"><span>Contact</span> <span className="notranslate" translate="no">OTDA</span></a></li>
               {/* <!--li><a href="https://otda.ny.gov/legal/">Laws &amp; Policies</a></li--> */}
-              <li>
-                <a href="https://otda.ny.gov/accessibility.asp">
-                  <span>Accessibility</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://otda.ny.gov/privacypolicy.asp">
-                  <span>Privacy Policy</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://otda.ny.gov/disclaimer.asp">
-                  <span>Disclaimer</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://otda.ny.gov/ada-notice.asp">
-                  <span>Notice under ADA</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://otda.ny.gov/legal/FOIL/">
-                  <span>Freedom of Information Law (FOIL)</span>
-                </a>
+              <li><a href="https://otda.ny.gov/accessibility.asp"><span>Accessibility</span></a></li>
+              <li><a href="https://otda.ny.gov/privacypolicy.asp"><span>Privacy Policy</span></a></li>
+              <li><a href="https://otda.ny.gov/disclaimer.asp"><span>Disclaimer</span></a></li>
+              <li><a href="https://otda.ny.gov/ada-notice.asp"><span>Notice under ADA</span></a></li>
+              <li><a href="https://otda.ny.gov/legal/FOIL/"><span>Freedom of Information Law (FOIL)</span></a>
               </li>
             </ul>
           </div>
@@ -181,16 +106,12 @@ export default function Home({  }) {
           </div>
         </div>
         <div id="program">
-          <p>
-            A Program of the{" "}
-            <a href="https://otda.ny.gov">
-              <span>Office of Temporary and Disability Assistance</span>
-            </a>
-          </p>
+          <p>A Program of the <a href="https://otda.ny.gov"><span>Office of Temporary and Disability
+            Assistance</span></a></p>
         </div>
       </div>
       {/* <!-- End nys-global-footer div --> */}
+    
     </>
-  );
+  )
 }
-
