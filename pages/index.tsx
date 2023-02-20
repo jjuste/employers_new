@@ -5,11 +5,9 @@ import { useState, useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-interface Home {
-  data: string;
-}
 
-export default function Home({ data }) {
+
+export default function Home({ data }: {data: any}) {
   //to display on page
   const [showPosts, setshowPosts] = useState();
   //url for json
@@ -23,14 +21,14 @@ export default function Home({ data }) {
     //convert to json object
     const responseData = await response.json();
     //map over json object
-    displayEmail = responseData.map(function (user) {
+    displayEmail = responseData.map(function ({user}: {user:any}) {
       return <p key={user.id}>{user.email}</p>;
     });
     setshowPosts(displayEmail);
   }
 
   //using static server props
-  displayEmail = data.map(function (user) {
+  displayEmail = data.map(function ({user}: {user:any}) {
     return <p key={user.id}>{user.email}</p>;
   });
 

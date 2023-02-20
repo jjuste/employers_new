@@ -1005,11 +1005,11 @@ body {
       transition: opacity .25s ease-in-out;
   }
   
-  .cs-upper p a .icon-bracket_left: before {
+  /* .cs-upper p a .icon-bracket_left: before {
       color: #fff;
       transform: rotate(90deg);
       display: block;
-  }
+  } */
   
   .icon-bracket_left:before {
       content: "\e60d";
