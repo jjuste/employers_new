@@ -12,13 +12,14 @@ export const getStaticProps = async () =>{
 
   //on fetch, add to json
   const data = await res.json();
+  console.log(data);
 
   return {
-    props: { ninjas: data }
+    props: { users: data }
   }
 }
 
-export default function Home({ ninjas }: {ninjas: any})  {
+export default function Home({ users }: {users: any})  {
   return (
     <>
 
@@ -26,10 +27,10 @@ export default function Home({ ninjas }: {ninjas: any})  {
        <div>
         <h1>Testing JSON API</h1>
   
-       {ninjas.map((ninja: { id: Key | null | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined })=>(
-        <div key={ninja.id}>
+       {users.map((user: { id: Key | null | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined })=>(
+        <div key={user.id}>
           <a>
-            <h3>{ninja.name}</h3>
+            <h3>{user.name}</h3>
           </a>
         </div>
        ))}
