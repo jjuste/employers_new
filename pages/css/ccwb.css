@@ -1232,5 +1232,11 @@ body {
     // Social Media Icons only supply image and size 
     padding: 0 14px 0 0;
   } */
+
+
+  .container {
+    display:flex;
+    flex-direction: row;
+  }
   
   

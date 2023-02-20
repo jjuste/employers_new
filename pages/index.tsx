@@ -1,66 +1,63 @@
-import Head from 'next/head'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-import {useState, useEffect} from 'react';
+import Head from "next/head";
+import { Inter } from "@next/font/google";
+import styles from "@/styles/Home.module.css";
+import { useState, useEffect } from "react";
 
+const inter = Inter({ subsets: ["latin"] });
 
-const inter = Inter({ subsets: ['latin'] })
+interface Home {
+  data: string;
+}
 
-export default function Home() {
-
+export default function Home({ data }) {
+  //to display on page
+  const [showPosts, setshowPosts] = useState();
   //url for json
-  const apiURL = 'https://jsonplaceholder.typicode.com/users'
-
-  //this function pulls the data from the api
-  function getJSON() {
-    //fetch url
-    fetch(apiURL)
-    //when we get it
-    .then(response =>response.json())
-
-    //display it in the console
-    .then(result => {
-      console.log(result);
-    })
+  const apiURL = "https://jsonplaceholder.typicode.com/users";
+  //variable for email
+  let displayEmail;
+  //using async
+  async function getJSON() {
+    //fetch apiurl
+    const response = await fetch(apiURL);
+    //convert to json object
+    const responseData = await response.json();
+    //map over json object
+    displayEmail = responseData.map(function (user) {
+      return <p key={user.id}>{user.email}</p>;
+    });
+    setshowPosts(displayEmail);
   }
 
-  useEffect(()=>{
+  //using static server props
+  displayEmail = data.map(function (user) {
+    return <p key={user.id}>{user.email}</p>;
+  });
 
+  useEffect(() => {
     //function to display apiurl
-    getJSON()
-
-  },[])
+    getJSON();
+  }, []);
   return (
     <>
-      
-<p>Testing</p>
-   
-     
+      {/* <!-- InstanceBeginEditable name="pageHead" --> */}
+      <h1>JSON Testing</h1>
+      <h1>https://jsonplaceholder.typicode.com/users</h1>
+      {/* <!-- InstanceEndEditable --> */}
 
-        {/* <!-- InstanceBeginEditable name="pageHead" --> */}
-        <h1>Information for Employers</h1>
-        {/* <!-- InstanceEndEditable --> */}
-        <noscript>
-          <div id="jsoff" className="warn">
-            <h2>Enable JavaScript to access your account</h2>
-            <p>To access your account information, please enable JavaScript in your browser.
-              <a href="/dcse/enable_js.html">
-                Follow these instructions to enable JavaScript.</a></p>
+      <div className="container">
+        <div className="async">
+          <h2>I am coming from an async function</h2>
+          {showPosts}
+        </div>
+        <div className="staticprops">
+          <h2>I am coming from Static Server Props</h2>
+          {displayEmail}
+        </div>
+      </div>
 
-            <p>You can receive your payment information by phone at
-              <strong><abbr translate="no" dir="ltr" className="nowrap"
-                title="Teletypewriter: 866-875-9975; Video Relay Service: https://fcc.gov/encyclopedia/trs-providers">1-888-208-4485</abbr></strong>
-              (<abbr title="Teletypewriter" translate="no">TTY</abbr>: <strong translate="no" dir="ltr" className="nowrap">1-866-875-9975</strong>),
-              Monday&ndash;Friday, 8:00 AM&ndash;7:00 PM.</p>
-          </div>
-        </noscript>
+      {/* <!-- InstanceBeginEditable name="content" --> */}
 
-        {/* <!-- InstanceBeginEditable name="content" --> */}
-
-       
-   
-    
-      
       {/* <!-- End content div --> */}
 
       {/* <!-- End content div --> */}
@@ -70,26 +67,87 @@ export default function Home() {
           <div className="footer-col">
             <h4>Child Support</h4>
             <ul>
-              <li><a href="/DCSE/HomePage"><span>Child Support Home</span></a></li>
-              <li><a href="/dcse/custodial_parent_services.html"><span>Custodial Parents</span></a></li>
-              <li><a href="/dcse/non_custodial_parent_services.html"><span>Noncustodial Parents</span></a></li>
-              <li><a href="/dcse/employers_new.html"><span className="capitalize">Employers</span></a></li>
-              <li><a href="/dcse/providers.html"><span>Providers</span></a></li>
-              <li><a href="/DCSE/LocalOffices_input"><span>Local Offices</span></a></li>
-              <li><a href="/dcse/resources.html"><span>Resources</span></a></li>
+              <li>
+                <a href="/DCSE/HomePage">
+                  <span>Child Support Home</span>
+                </a>
+              </li>
+              <li>
+                <a href="/dcse/custodial_parent_services.html">
+                  <span>Custodial Parents</span>
+                </a>
+              </li>
+              <li>
+                <a href="/dcse/non_custodial_parent_services.html">
+                  <span>Noncustodial Parents</span>
+                </a>
+              </li>
+              <li>
+                <a href="/dcse/employers_new.html">
+                  <span className="capitalize">Employers</span>
+                </a>
+              </li>
+              <li>
+                <a href="/dcse/providers.html">
+                  <span>Providers</span>
+                </a>
+              </li>
+              <li>
+                <a href="/DCSE/LocalOffices_input">
+                  <span>Local Offices</span>
+                </a>
+              </li>
+              <li>
+                <a href="/dcse/resources.html">
+                  <span>Resources</span>
+                </a>
+              </li>
             </ul>
           </div>
           <div className="footer-col">
             <h4>Office of Temporary and Disability Assistance</h4>
             <ul>
-              <li><a href="https://otda.ny.gov/"><span className="notranslate" translate="no">OTDA</span> <span>Home</span></a></li>
-              <li><a href="https://otda.ny.gov/contact.asp"><span>Contact</span> <span className="notranslate" translate="no">OTDA</span></a></li>
+              <li>
+                <a href="https://otda.ny.gov/">
+                  <span className="notranslate" translate="no">
+                    OTDA
+                  </span>{" "}
+                  <span>Home</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://otda.ny.gov/contact.asp">
+                  <span>Contact</span>{" "}
+                  <span className="notranslate" translate="no">
+                    OTDA
+                  </span>
+                </a>
+              </li>
               {/* <!--li><a href="https://otda.ny.gov/legal/">Laws &amp; Policies</a></li--> */}
-              <li><a href="https://otda.ny.gov/accessibility.asp"><span>Accessibility</span></a></li>
-              <li><a href="https://otda.ny.gov/privacypolicy.asp"><span>Privacy Policy</span></a></li>
-              <li><a href="https://otda.ny.gov/disclaimer.asp"><span>Disclaimer</span></a></li>
-              <li><a href="https://otda.ny.gov/ada-notice.asp"><span>Notice under ADA</span></a></li>
-              <li><a href="https://otda.ny.gov/legal/FOIL/"><span>Freedom of Information Law (FOIL)</span></a>
+              <li>
+                <a href="https://otda.ny.gov/accessibility.asp">
+                  <span>Accessibility</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://otda.ny.gov/privacypolicy.asp">
+                  <span>Privacy Policy</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://otda.ny.gov/disclaimer.asp">
+                  <span>Disclaimer</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://otda.ny.gov/ada-notice.asp">
+                  <span>Notice under ADA</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://otda.ny.gov/legal/FOIL/">
+                  <span>Freedom of Information Law (FOIL)</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -135,12 +193,21 @@ export default function Home() {
           </div>
         </div>
         <div id="program">
-          <p>A Program of the <a href="https://otda.ny.gov"><span>Office of Temporary and Disability
-            Assistance</span></a></p>
+          <p>
+            A Program of the{" "}
+            <a href="https://otda.ny.gov">
+              <span>Office of Temporary and Disability Assistance</span>
+            </a>
+          </p>
         </div>
       </div>
       {/* <!-- End nys-global-footer div --> */}
-    
     </>
-  )
+  );
+}
+
+export async function getServerSideProps() {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
+  const data = await res.json();
+  return { props: { data } };
 }
