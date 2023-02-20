@@ -156,55 +156,7 @@ export default function Home() {
        
    
     
-        <h2 id="emplPubsIP">Employer Publications</h2>
-        {/* <!-- FIXME This should be a class --> */}
-        <ul className='empresources'>
-          <li>
-            <a href="/dcse/pdfs/CSRefGuideEmployers.pdf">Reference Guide for Employers</a>
-            (<abbr title="Portable Document Format" translate="no">PDF</abbr>)
-          </li>
-          {/* <!-- FIXME This should be a sublist with a class --> */}
-          <li className="m-s-15px">
-            <a href="/dcse/pdfs/CSRefGuideEmployers-SP.pdf">
-              <bdo dir="ltr" lang="es" translate="no">ESPAÑOL: Gu&iacute;a de Referencia
-                para Empleadores sobre Sustento de Menores</bdo>
-            </a>
-            (<abbr title="Portable Document Format" translate="no">PDF</abbr>)
-          </li>
-          <li>
-            <a href="/dcse/pdfs/CSFS_QuickRef.pdf">
-              Quick Reference Guide for Employers and Income Withholders
-            </a> (<abbr title="Portable Document Format" translate="no">PDF</abbr>)
-          </li>
-          <li>
-            <a href="/dcse/pdfs/CSFS_NewHire.pdf">New Hire Reporting</a>
-            (<abbr title="Portable Document Format" translate="no">PDF</abbr>)
-          </li>
-          <li>
-            <a href="/dcse/pdfs/CSFS_IndContractors.pdf">Independent Contractors</a>
-            (<abbr title="Portable Document Format" translate="no">PDF</abbr>)
-          </li>
-          <li>
-            <a href="/dcse/pdfs/CSFS_IWO.pdf">
-              Income Withholding Order/Notice for Support (<span translate="no">IWO</span>)
-            </a> (<abbr title="Portable Document Format" translate="no">PDF</abbr>)
-          </li>
-          <li>
-            <a href="/dcse/pdfs/CSFS_LumpSum.pdf">Lump Sum Payments and Child Support</a>
-            (<abbr title="Portable Document Format" translate="no">PDF</abbr>)
-          </li>
-          <li>
-            <a href="pdfs/CSFS_NMSN.pdf">National Medical Support Notice</a>
-            (<abbr title="Portable Document Format" translate="no">PDF</abbr>)
-          </li>
-          <li>
-            <a href="/dcse/pdfs/empInfographic.pdf">
-              Employers and Child Support: Infographic
-            </a> (<abbr title="Portable Document Format" translate="no">PDF</abbr>)
-          </li>
-        </ul>
-        {/* <!-- InstanceEndEditable --> */}
-      </div>
+      
       {/* <!-- End content div --> */}
 
       {/* <!-- End content div --> */}
